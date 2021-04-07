@@ -1,0 +1,771 @@
+#game-container div {
+    user-select: none;
+}
+
+#game-container {
+    height: 100%;
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    height: 150px;
+}
+
+#game-area {
+    height: 100%;
+    position: relative;
+    background-color: #FF9C04;
+    color: white;
+}
+
+#game-area > .draggable {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border: 4px solid transparent;
+    background-color: #e27e36;
+    background-clip: padding-box;
+    margin: 10px 20px;
+    text-align: center;
+    color: white;
+    font: 13px 'Lato', Sans-Serif;
+    max-width: 100px;
+    position: absolute;
+}
+
+.draggable img:hover {
+    color: #fff;
+}
+
+.right {
+    float: right;
+    right: 0;
+}
+
+.left {
+    float: left;
+}
+
+.image {
+    border-radius: 15px;
+}
+
+.draggable img {
+    user-select: none;
+    display: block;
+    margin: auto;
+    max-height: 70px;
+    max-width: 100px;
+    border-radius: 10px;
+}
+
+.dropzone, .matched {
+    background-color: #ccc;
+    border-radius: 15px;
+}
+
+#game-area > .title {
+    padding: 10px;
+    color: #484848;
+    background-color: #e5e5e5;
+}
+
+#game-area > .dropzone {
+    outline: 0px;
+}
+
+#game-area > .drop-active img {
+}
+
+#game-area > .drop-target {
+    background-color: cornflowerblue;
+}
+
+#game-area > .drop-target.image {
+    transition: background-color 0.0s;
+    padding: 4px;
+    border: 0px solid transparent;
+}
+
+#game-area > .drag-drop {
+    display: inline-block;
+    min-width: 40px;
+    padding: 2em 0.5em;
+
+    color: #fff;
+    background-color: #29e;
+    outline: solid 2px #fff;
+
+    transition: background-color 0.3s;
+}
+
+#game-area > .drag-drop.can-drop {
+    color: #000;
+    background-color: #4e4;
+}
+
+#game-area > .matched {
+    padding: 4px;
+    background-color: forestgreen;
+}
+
+#game-area > .matched div {
+    padding: 8px 4px;
+}
+
+#game-area > .dragged-in {
+
+}
+
+#game-area > .dropped-into {
+    color: white;
+    background-color: firebrick;
+}
+
+#game-area > .dropped-into.image {
+    transition: background-color 0.0s;
+    padding: 4px;
+    border: 0px solid transparent;
+}
+
+#game-area > .in_basket.image {
+    transition: background-color 0.0s;
+    background-color: forestgreen;
+    padding: 4px;
+    border: 0px solid transparent;
+}
+
+#game-area > .in_basket.title {
+    transition: background-color 0.0s;
+    background-color: forestgreen;
+    color: white;
+}
+
+.basket {
+    border-radius: 50px;
+    padding: 20px;
+    width: 100px;
+    height: 175px;
+    background-image: url(../img/basketTexture.jpg);
+    border: dashed 15px black;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    margin: 10px -50% 30px auto;
+    transform: translate(-50%, -50%);
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+.basket-text {
+    margin-top: 175px; /* same as basket class height*/
+    margin-left: -15px;
+    width: 120px; /* .basket width + padding */
+    background: crimson;
+    padding: 10px 0;
+}
+
+#button {
+    padding: 15px 25px;
+    font-size: 24px;
+    font-family: cursive;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 9px #999;
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    left: 50%;
+    margin: 0 0 0 -100px;
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+#button:hover {
+    background-color: #3e8e41
+}
+
+#button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.text {
+    color: white;
+    text-align: center;
+    z-index: 10;
+    font-size: 16px;
+    border-radius: 15px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.timer {
+    z-index: 9999999999999999998; /* Sit on top */
+    color: white;
+    padding: 17px;
+    font: bold 30px 'Lato', Sans-Serif;
+}
+
+.scores {
+    z-index: 9999999999999999998; /* Sit on top */
+    color: white;
+    padding: 17px;
+    font: bold 30px 'Lato', Sans-Serif;
+}
+
+#hangman {
+    height: 50%;
+    min-height: 350px;
+}
+
+#letters-area, #hangman {
+    text-align: center;
+    width: 100%;
+    font: bold 25px 'Lato', Sans-Serif;
+}
+
+#hints {
+    display: inline-block;
+    margin: 0 auto;
+    font: bold 25px 'Lato', Sans-Serif;
+}
+
+#crossword {
+    clear: left;
+    top: 80px;
+    left: 40%;
+    min-height: 60%;
+    display: table;
+    margin: 0 auto;
+    font: bold 20px 'Lato', Sans-Serif;
+}
+
+#letters-area .word {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#crossword .word {
+    color: #fff;
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#crossword .word-number, #crossword .letter, #crossword .empty-letter-space {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    margin: 2px;
+    padding-top: 5px;
+    width: 30px;
+    height: 25px;
+    display: inline-block;
+    position: relative;
+}
+
+#crossword .letter, #crossword .empty-letter-space {
+    border: 3px solid white;
+}
+
+#crossword .empty-letter-space {
+    border: 3px solid transparent;
+}
+
+#crossword .solution-letter {
+    border-color: #858585;
+    color: #858585;
+}
+
+#crossword .locked {
+    border-color: forestgreen;
+    color: forestgreen;
+}
+
+#crossword .locked.solution-letter {
+    border-color: darkolivegreen;
+    color: darkolivegreen;
+}
+
+#crossword .word.active {
+    border-color: #e5e5e5;
+}
+
+#crossword .letter.active {
+    border-color: #e5e5e5;
+    color: #e5e5e5;
+}
+
+#crosswordHints {
+    display: block;
+    top: 80px;
+    font: 20px 'Lato', Sans-Serif;
+    width: 100%;
+    clear: left;
+}
+
+#crosswordHints table {
+    margin: 0 auto;
+    margin-top: 35px;
+    border-collapse: collapse;
+    color: white;
+}
+
+#crosswordHints table tr td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#letters-area .letter, #letters-area .empty-letter-space {
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    margin: 7px;
+    display: inline-block;
+    position: relative;
+}
+
+#letters-area .empty-letter-space {
+    margin: 0px;
+    border: 0px solid transparent;
+}
+
+#letters-area .letter div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -11px;
+}
+
+#letters-area .space {
+    border: 3px solid transparent;
+}
+
+#hangman #hangman-image {
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+::selection {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: transparent;
+}
+
+#questionDiv {
+    position: absolute;
+    width: 70%; /* 100% - #prizesDiv.width */
+    height: 50%; /* 100% - #gameDiv.height */
+    top: 50%; /* #gameDiv.height */
+}
+
+#question {
+    height: 30%; /*100% - #answersDiv.height */
+    text-align: center;
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+#questionBlock {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 0;
+    max-width: 90%;
+    min-width: 90%;
+    border-radius: 15px;
+    background-color: #e5e5e5;
+    color: #484848;
+}
+
+#answersDiv {
+    top: 30%; /* #question.height */
+    height: 70%; /*100% - #question.height */
+}
+
+.answer {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.answerBlock {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 15px;
+    min-width: 80%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #e5e5e5;
+    color: #484848;
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+#prizesDiv {
+    position: absolute;
+    width: 30%; /*check with #questionDiv */
+    left: 70%;
+    top: 50%;
+    height: 50%;
+}
+
+#hintsDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.gameImage {
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    left: 20%;
+    position: absolute;
+}
+
+#gameDiv {
+    height: 50%;
+    width: 70%; /*same as answersDiv */
+    position: relative;
+}
+
+.hint {
+    width: 100%;
+    height: 50%;
+    display: block;
+    position: relative;
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+#skip {
+    position: absolute;
+    top: 10%;
+    max-height: 60%;
+}
+
+#fiftyFifty {
+    position: absolute;
+    top: 30%;
+    max-height: 50%;
+}
+
+#johnny {
+    position: absolute;
+    max-width: 35%;
+    max-height: 35%;
+    top: 65%;
+    left: 17%;
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+#comment {
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    left: 30%;
+    top: 5%;
+    -webkit-filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.7))
+}
+
+#game-area #memo {
+    margin: 0px auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+#game-area .memo-object {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+
+#game-area .memo-object .memo-object-front {
+    top: 50%;
+    position: relative;
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+}
+
+#game-area .memo-object .memo-object-back {
+    background-color: #FF9C04;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    position: relative;
+    transform: rotateY(180deg);
+}
+
+#game-area .memo-object .memo-object-page {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -25%;
+}
+
+#game-area .memo-object .memo-object-front img {
+    max-height: 70px;
+    max-width: 70px;
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7))
+}
+
+#game-area .memo-object img, #game-area .memo-object p {
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font: 13px 'Lato', Sans-serif;
+    color: #484848;
+    text-align: center;
+}
+
+#game-area .memo-object p {
+    padding: 3px;
+    background-color: #fff;
+}
+
+#sort-area .letter {
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+}
+
+#sort-area {
+    position: absolute;
+    top: 50%;
+    height: 50%;
+    text-align: center;
+    width: 100%;
+    font: bold 25px 'Lato', Sans-Serif;
+}
+
+#definition-area {
+    position: absolute;
+    height: 40%;
+    top: 10%;
+    text-align: center;
+    width: 100%;
+    font: bold 25px 'Lato', Sans-Serif;
+}
+
+#sort-area .word {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#sort-area .letter {
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    border: 3px solid white;
+    width: 40px;
+    height: 40px;
+    margin: 7px;
+    display: inline-block;
+    position: relative;
+}
+
+#sort-area .letter div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -11px;
+}
+
+#sort-area .space {
+    border: 3px solid transparent;
+}
+
+#puzzle {
+    position: relative;
+    top: 30px;
+    left: 5%;
+    max-width: 50%;
+    display: block;
+}
+
+#puzzle table {
+    border-collapse: collapse;
+}
+
+#puzzle table, #puzzle th, #puzzle td, #hints th, #hints td {
+    font: bold 20px 'Lato', Sans-Serif;
+    padding: 1px;
+    height: 30px;
+    min-width: 30px;
+    vertical-align: middle;
+}
+
+#hints .hidden-answer {
+    display: none;
+}
+
+#puzzle td {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border: 3px solid white;
+}
+
+#puzzle .correct {
+    background: forestgreen;
+}
+
+#puzzle .dragged {
+    background: #e5e5e5;
+}
+
+#hints {
+    top: 40px;
+    position: relative;
+    display: block;
+    float: left;
+    left: 5%;
+    height: 50%;
+}
+
+#hints table {
+    border-collapse: collapse;
+    color: firebrick;
+}
+
+#hints table tr td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#hints .hintsTable {
+    float: right;
+}
+
+.found {
+    color: forestgreen;
+}
+
+#picture-game {
+    width: 100%;
+    height: 100%;
+}
+
+#picture-game .picture-question {
+    font: bold 25px 'Lato', Sans-Serif;
+    text-align: center;
+    position: relative;
+    top: 20%;
+    margin: 0 auto;
+    max-width: 50%;
+    padding: 20px;
+    color: #484848;
+    background: #e5e5e5;
+    border-radius: 20px;
+}
+
+#picture-game .picture-answers {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    text-align: center;
+}
+
+#picture-game .picture-answer {
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    font: bold 20px 'Lato', Sans-Serif;
+    text-align: center;
+}
+
+#picture-game .picture-answer img {
+    border: solid 5px transparent;
+    border-radius: 10%;
+    max-height: 10%;
+    width: auto;
+}
+
+#picture-game .correct-answer img {
+    border: solid 5px forestgreen;
+}
+
+#picture-game .incorrect-answer img {
+    border: solid 5px firebrick;
+}
+
+#picture-game .picture-answer img:hover {
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}

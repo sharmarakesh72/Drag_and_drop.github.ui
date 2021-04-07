@@ -1,0 +1,44 @@
+.dropdown {
+    padding: 10px;
+    top: 5px;
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Sit on very top */
+    right: 0;
+}
+
+.dropdown-content input {
+    color: black;
+    padding: 1px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content input:hover {
+    background-color: #ddd
+}
+
+.showDropdown {
+    display: block;
+}
+
+#buttonMenu {
+    width: 40px;
+    height: 40px;
+    z-index: 99999999999999999999; /* Sit on top */
+}
+
+#buttonMenu:active {
+    transform: translateY(4px);
+}
+
+.flag {
+    height: 50px;
+    width: 50px;
+}

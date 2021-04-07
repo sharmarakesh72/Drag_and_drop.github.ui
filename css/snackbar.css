@@ -1,0 +1,103 @@
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    color: #000; /* White text color */
+    font-size: 16px;
+    border-radius: 55px; /* Rounded borders */
+    /* Padding */
+    position: relative; /* Sit on top of the screen */
+    z-index: 9999999999999999999; /* Sit on top */
+    height: 50%;
+    bottom: 70%;
+    max-width: 48%;
+    left: 31%;
+    top: 6%;
+}
+
+#snackbar-body {
+    color: #484848;
+    padding: 30px 15px 15px;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+    font: 16px 'Lato', Sans-Serif;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 9999999999999999999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+.close {
+    z-index: 9999999999999999999; /* Sit on top */
+    padding-right: 15px;
+    padding-top: 15px;
+    color: #333333;
+    float: right;
+    font-size: 40px;
+    left: 90%;
+    position: absolute;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 85%;
+        opacity: 0;
+    }
+    to {
+        bottom: 83%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 85%;
+        opacity: 0;
+    }
+    to {
+        bottom: 83%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 83%;
+        opacity: 1;
+    }
+    to {
+        bottom: 85%;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 83%;
+        opacity: 1;
+    }
+    to {
+        bottom: 85%;
+        opacity: 0;
+    }
+}
