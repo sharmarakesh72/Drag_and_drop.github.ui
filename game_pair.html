@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Quick Pair Game</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/snackbar.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/interact.min.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/locale.js"></script>
+    <script src="js/snackbar.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/gameManager.js"></script>
+    <script src="js/gameObject.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/PairGame/pairGame.js"></script>
+    <script src="js/PairGame/pairGameObject.js"></script>
+    <script src="js/PairGame/drag.js"></script>
+    <script src="config/config.js"></script>
+    <script src="config/PairGame/config.js"></script>
+    <script src="config/PairGame/locale.js"></script>
+</head>
+<body>
+<div id="game-container">
+    <div id="game-area">
+    </div>
+</div>
+<script>
+    $(function () {
+        GameManager.set(PairGame, 'game-area', 'barcode');
+    });
+</script>
+</body>
+</html>
